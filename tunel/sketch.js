@@ -7,7 +7,7 @@ function setup() {
     canvas = createCanvas(960, 680);
     addTunelCircle();
     setInterval(addTunelCircle, 1300);
-    // setInterval(clearUnusedCircles, 1000);
+    setInterval(clearUnusedCircles, 1000);
 
 }
 
