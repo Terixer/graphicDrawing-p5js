@@ -3,22 +3,36 @@ let stars = [];
 let canvas;
 let numberOfStars = 1200;
 let speed = 20;
+let img;
 
 function setup() {
     canvas = createCanvas(document.body.clientWidth, document.body.clientHeight);
+    cockpitCanvas = createCanvas(document.body.clientWidth, document.body.clientHeight);
     canvas.background(0);
     for (let i = 0; i < numberOfStars; i++) {
         stars.push(new Star);
     }
+    img = loadImage('/cockpit.png');
+    noCursor();
+
 }
 
 function draw() {
+
     canvas.background(0);
-    canvas.translate(width / 2, height / 2);
+
+
+    canvas.translate(mouseX, mouseY);
     for (let i = 0; i < stars.length; i++) {
         stars[i].show();
         stars[i].update();
     }
+    translate(-mouseX, -mouseY);
+
+    image(img, 0, 0);
+
+
+
 }
 
 function keyPressed() {
